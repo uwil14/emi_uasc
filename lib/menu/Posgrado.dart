@@ -1,9 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:emi_uasc/heramientas/PosgradoListado.dart';
-import 'package:emi_uasc/heramientas/SliderDoble.dart';
-import 'package:emi_uasc/heramientas/VisorPosgrado.dart';
-import 'package:emi_uasc/provider/PosgradoProvider.dart';
+import 'package:emi_uasc/heramientas/posgrado_listado.dart';
+import 'package:emi_uasc/heramientas/slider_doble.dart';
+import 'package:emi_uasc/heramientas/visor_posgrado.dart';
+import 'package:emi_uasc/provider/posgrado_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:emi_uasc/heramientas/SliderDoble.dart';
-import 'package:emi_uasc/heramientas/Visor.dart';
-import 'package:emi_uasc/provider/VisorProvider.dart';
+import 'package:emi_uasc/heramientas/slider_doble.dart';
+import 'package:emi_uasc/heramientas/visor.dart';
+import 'package:emi_uasc/provider/visor_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';

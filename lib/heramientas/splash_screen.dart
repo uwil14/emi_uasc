@@ -2,10 +2,12 @@ import 'dart:async';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'HomePage.dart';
+import 'home_page.dart';
 import 'package:sizer/sizer.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -15,20 +17,20 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-        Duration(milliseconds: 2500),
+        const Duration(milliseconds: 2500),
             () => Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (BuildContext context) => HomePage())));
   }
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent));
     return Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               gradient: LinearGradient(
-                  colors: [Color(0xff1C3B70), Color(0xff005F92)],
+                  colors: [Color(0xff034692), Color(0xff005F92)],
                   stops: [0.1, 0.8],
                   begin: FractionalOffset.topCenter,
                   end: FractionalOffset.bottomCenter)),

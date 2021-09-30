@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:emi_uasc/provider/VisorProvider.dart';
+import 'package:emi_uasc/provider/visor_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,9 +17,9 @@ class _VisorState extends State<Visor> {
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF012B5D),
+        backgroundColor: const Color(0xFF012B5D),
         child: Container(
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back,
           ),
         ),
@@ -28,7 +28,7 @@ class _VisorState extends State<Visor> {
         },
       ),
       body: Container(
-        padding: EdgeInsets.only(top: 36.5),
+        padding: const EdgeInsets.only(top: 36.5),
         child: Container()
         // PhotoView(
         //   basePosition: Alignment.topCenter,

@@ -1,14 +1,14 @@
 // @dart=2.9
 
-import 'package:emi_uasc/provider/MenuProvider.dart';
-import 'package:emi_uasc/provider/PosgradoProvider.dart';
-import 'package:emi_uasc/provider/VirtualProvider.dart';
-import 'package:emi_uasc/provider/VisorProvider.dart';
+import 'package:emi_uasc/provider/menu_provider.dart';
+import 'package:emi_uasc/provider/posgrado_provider.dart';
+import 'package:emi_uasc/provider/virtual_provider.dart';
+import 'package:emi_uasc/provider/visor_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import 'heramientas/SplashScreen.dart';
+import 'heramientas/splash_screen.dart';
 
 void main() {
   runApp(MyApp());

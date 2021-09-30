@@ -1,13 +1,12 @@
 import 'dart:async';
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:emi_uasc/heramientas/BarraRedes.dart';
-import 'package:emi_uasc/heramientas/Virtual.dart';
-import 'package:emi_uasc/provider/VirtualProvider.dart';
+import 'package:emi_uasc/heramientas/barra_redes.dart';
+import 'package:emi_uasc/heramientas/virtual.dart';
+import 'package:emi_uasc/provider/virtual_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:panorama/panorama.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +30,7 @@ class _ContactoState extends State<Contacto> {
     final virtualProvider = Provider.of<VirtualProvider>(context);
 
     // Declaramos una posicion inicial para el googleMaps
-    CameraPosition _initialPosition = CameraPosition(
+    CameraPosition _initialPosition = const CameraPosition(
         target: LatLng(-17.81180654876007, -63.178771421404825), zoom: 12);
     Completer<GoogleMapController> _controller = Completer();
 
@@ -42,7 +41,7 @@ class _ContactoState extends State<Contacto> {
 // Agregamos el marcador con las coordenadoas de la EMI UASC
     setState(() {
       _markers.add(
-        Marker(
+        const Marker(
           infoWindow: InfoWindow(
               title: 'EMI UASC', snippet: 'Escuela Militar de Ingeniera'),
           markerId: MarkerId('EMI UASC'),
@@ -61,7 +60,7 @@ class _ContactoState extends State<Contacto> {
               pinned: true,
               backgroundColor: Color(0xff034692),
               leading: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios,
                 ),
                 onPressed: () {
@@ -78,13 +77,13 @@ class _ContactoState extends State<Contacto> {
                       ? MediaQuery.of(context).size.height * 0.35
                       : MediaQuery.of(context).size.height * 0.7,
               flexibleSpace: FlexibleSpaceBar(
-                stretchModes: [
+                stretchModes: const [
                   StretchMode.zoomBackground,
                   StretchMode.blurBackground,
                   StretchMode.fadeTitle,
                 ],
                 centerTitle: true,
-                title: Text("EMI UASC",style: TextStyle(fontFamily: "MontserratSemiBold"),),
+                title: Text("EMI UASC",style: const TextStyle(fontFamily: "MontserratSemiBold"),),
                 background: Stack(
                   fit: StackFit.expand,
                   children: [
@@ -96,7 +95,7 @@ class _ContactoState extends State<Contacto> {
                         Navigator.of(context).push((_createRoute()))
                       },
                       animSpeed: 3.0,
-                      child: Image(
+                      child: const Image(
                         image: CachedNetworkImageProvider(
                             'https://santacruz.emi.edu.bo/images/App/virtual/patio.JPG'),
                       ),
@@ -109,7 +108,7 @@ class _ContactoState extends State<Contacto> {
                 delegate: SliverChildListDelegate([
               Container(
                 //Llamamos a BarraRedes con el booleano true para mostrar el sitio web tambien
-                child: BarraRedes(
+                child: const BarraRedes(
                     "https://www.facebook.com/emiuascz/",
                     "71566652",
                     "33579545",
@@ -118,21 +117,21 @@ class _ContactoState extends State<Contacto> {
               ),
               Container(
                 padding: EdgeInsets.only(top: 15, left: 10),
-                child: Text(
+                child: const Text(
                   "General",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 25, top: 10),
-                child: Text(
+                padding: const EdgeInsets.only(left: 25, top: 10),
+                child: const Text(
                   "Direccion",
                   style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18),
                 ),
               ),
               Container(
                 padding: EdgeInsets.only(left: 25, top: 5),
-                child: Text(
+                child: const Text(
                   "Tercer Anillo Radial 13",
                   style: TextStyle(
                       fontWeight: FontWeight.normal,
@@ -141,15 +140,15 @@ class _ContactoState extends State<Contacto> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 25, top: 20),
-                child: Text(
+                padding: const EdgeInsets.only(left: 25, top: 20),
+                child: const Text(
                   "Email",
                   style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18),
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 25, top: 5),
-                child: Text(
+                padding: const EdgeInsets.only(left: 25, top: 5),
+                child: const Text(
                   "santacruz@adm.emi.edu.bo",
                   style: TextStyle(
                       fontWeight: FontWeight.normal,
@@ -159,14 +158,14 @@ class _ContactoState extends State<Contacto> {
               ),
               Container(
                 padding: EdgeInsets.only(left: 25, top: 20),
-                child: Text(
+                child: const Text(
                   "Fax",
                   style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18),
                 ),
               ),
               Container(
                 padding: EdgeInsets.only(left: 25, top: 5, bottom: 20),
-                child: Text(
+                child: const Text(
                   "3579545",
                   style: TextStyle(
                       fontWeight: FontWeight.normal,
@@ -175,7 +174,7 @@ class _ContactoState extends State<Contacto> {
                 ),
               ),
               //En este container ira el google maps con el markador definido en las coordenadas de la EMI UASC
-              Container(
+              SizedBox(
                 height:
                     MediaQuery.of(context).orientation == Orientation.portrait
                         ? MediaQuery.of(context).size.height * 0.35

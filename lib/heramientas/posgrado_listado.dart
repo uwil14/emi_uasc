@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:emi_uasc/provider/PosgradoProvider.dart';
+import 'package:emi_uasc/provider/posgrado_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

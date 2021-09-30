@@ -1,6 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:emi_uasc/provider/VirtualProvider.dart';
+import 'package:emi_uasc/provider/virtual_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:panorama/panorama.dart';
 import 'package:provider/provider.dart';
@@ -23,14 +23,14 @@ class _VirtualState extends State<Virtual> {
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: FadeInDown(
-          child: Text(
+          child: const Text(
             "EMI 360",
             style: TextStyle(color: Colors.white),
           ),
         ),
         leading: FadeInDown(
           child: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,
             ),
@@ -60,7 +60,7 @@ class _VirtualState extends State<Virtual> {
             child: BounceInDown(
               child: Text(
                 virtualProvider.title,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.bold),

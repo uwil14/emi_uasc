@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:emi_uasc/heramientas/Reproductor.dart';
-import 'package:emi_uasc/heramientas/SliderDoble.dart';
+import 'package:emi_uasc/heramientas/reproductor.dart';
+import 'package:emi_uasc/heramientas/slider_doble.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

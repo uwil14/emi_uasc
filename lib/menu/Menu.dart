@@ -1,21 +1,21 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:emi_uasc/heramientas/Plantilla.dart';
-import 'package:emi_uasc/provider/MenuProvider.dart';
+import 'package:emi_uasc/heramientas/plantilla.dart';
+import 'package:emi_uasc/provider/menu_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'Becas.dart';
-import 'Bibliotecas.dart';
-import 'Buzon.dart';
-import 'Contacto.dart';
-import 'Convenios.dart';
-import 'Grado.dart';
-import 'Idiomas.dart';
-import 'Instruccion.dart';
-import 'Movilidad.dart';
-import 'Posgrado.dart';
-import 'Tecnico.dart';
-import 'Uniforme.dart';
+import 'becas.dart';
+import 'bibliotecas.dart';
+import 'buzon.dart';
+import 'contacto.dart';
+import 'convenios.dart';
+import 'grado.dart';
+import 'idiomas.dart';
+import 'instruccion.dart';
+import 'movilidad.dart';
+import 'posgrado.dart';
+import 'tecnico.dart';
+import 'uniforme.dart';
 
 class Menu extends StatefulWidget {
   @override

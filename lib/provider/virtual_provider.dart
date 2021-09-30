@@ -11,7 +11,7 @@ class VirtualProvider with ChangeNotifier{
     notifyListeners();
   }
 
-  String _body = 'images/emi.JPG';
+  String _body = 'patio.JPG';
 
   String get body {
     return _body;

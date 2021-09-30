@@ -12,10 +12,10 @@ class _UniformesState extends State<Uniformes> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 5,
-      child: FadeInRight(
+      child: FadeInUp(
         child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: TabBar(
+          appBar: const TabBar(
             isScrollable: true,
             unselectedLabelColor: Colors.grey,
             indicatorColor: Color(0xff034692),
@@ -35,11 +35,11 @@ class _UniformesState extends State<Uniformes> {
             child: TabBarView(
               physics: BouncingScrollPhysics(),
               children: [
-                uniformefoto("0"),
-                uniformefoto("1"),
-                uniformefoto("2"),
-                uniformefoto("3"),
-                uniformefoto("4"),
+                uniformefoto("lunes"),
+                uniformefoto("martes"),
+                uniformefoto("miercoles"),
+                uniformefoto("jueves"),
+                uniformefoto("viernes"),
               ],
             ),
           ),
@@ -50,15 +50,10 @@ class _UniformesState extends State<Uniformes> {
 }
 
 Widget uniformefoto(String i) {
-  return ListView(
-    physics: BouncingScrollPhysics(),
-    children: [
-      Container(
-        child: CachedNetworkImage(
-          imageUrl: 'https://santacruz.emi.edu.bo/images/App/uniformes/$i.jpeg',
-          fit: BoxFit.fill,
-        ),
-      )
-    ],
+  return  InteractiveViewer(
+
+    child: CachedNetworkImage(
+      imageUrl: 'https://santacruz.emi.edu.bo/images/App/uniformes/$i.png',
+    ),
   );
 }

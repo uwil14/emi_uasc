@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:emi_uasc/provider/MenuProvider.dart';
+import 'package:emi_uasc/provider/menu_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';

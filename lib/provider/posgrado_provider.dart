@@ -1,7 +1,7 @@
-import 'package:emi_uasc/menu/Menu.dart';
+import 'package:emi_uasc/menu/menu.dart';
 import 'package:flutter/cupertino.dart';
 
-class MenuProvider with ChangeNotifier {
+class PosgradoProvider with ChangeNotifier {
   Widget _body = Menu();
 
   Widget get body {
