@@ -1,0 +1,75 @@
+name: emi_uasc
+description: App para la EMI UASC
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+flutter_icons:
+  image_path: 'images/app.png'
+  android: true
+  ios: true
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  animate_do: ^2.0.0
+  url_launcher: ^6.0.3
+  font_awesome_flutter: ^9.0.0
+  provider: ^5.0.0
+  flutter_launcher_icons: ^0.9.0
+  carousel_slider: ^4.0.0-nullsafety.0
+  cached_network_image: ^3.0.0
+  google_maps_flutter: ^2.0.3
+  panorama: ^0.4.1
+  photo_view: ^0.11.1
+  flutter_native_splash: ^1.1.8+4
+  flutter_inner_drawer: ^0.5.8
+  flick_video_player: ^0.3.1
+  video_player: ^2.1.5
+  visibility_detector: ^0.2.0
+  sizer: ^2.0.13
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^1.0.0
+
+
+flutter:
+  fonts:
+    - family: MontserratMediumItalic
+      fonts:
+        - asset: fonts/Montserrat-MediumItalic.ttf
+
+    - family: MontserratExtraBold
+      fonts:
+        - asset: fonts/Montserrat-ExtraBold.ttf
+
+    - family: MontserratMedium
+      fonts:
+        - asset: fonts/Montserrat-Medium.ttf
+
+    - family: MontserratSemiBold
+      fonts:
+        - asset: fonts/Montserrat-SemiBold.ttf
+
+    - family: MontserratRegular
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
+
+
+  uses-material-design: true
+  assets:
+    - images/
+
+flutter_native_splash:
+  color: "034692"
