@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:emi_uasc/heramientas/plantilla.dart';
+import 'package:emi_uasc/menu/oferta.dart';
 import 'package:emi_uasc/provider/menu_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +10,7 @@ import 'bibliotecas.dart';
 import 'buzon.dart';
 import 'contacto.dart';
 import 'convenios.dart';
-import 'grado.dart';
+import 'grado1.dart';
 import 'idiomas.dart';
 import 'instruccion.dart';
 import 'movilidad.dart';
@@ -31,7 +32,7 @@ class _MenuState extends State<Menu> {
           onTap: () {
             switch (i) {
               case '0':
-                menuProvider.body = Grado();
+                menuProvider.body = Oferta();
                 menuProvider.title = "GRADO";
                 break;
               case '1':
@@ -129,9 +130,9 @@ class _MenuState extends State<Menu> {
 
 Route _createRoute() {
   return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => Plantilla(),
+      pageBuilder: (context, animation, secondaryAnimation) => const Plantilla(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(0.1, 1.0);
+        var begin = const Offset(0.1, 1.0);
         var end = Offset.zero;
         var curve = Curves.linearToEaseOut;
 

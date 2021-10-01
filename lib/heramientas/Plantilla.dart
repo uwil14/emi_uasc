@@ -1,4 +1,5 @@
 import 'package:emi_uasc/menu/contacto.dart';
+import 'package:emi_uasc/menu/oferta.dart';
 import 'package:emi_uasc/provider/menu_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,11 @@ class _PlantillaState extends State<Plantilla> {
     final menuProvider = Provider.of<MenuProvider>(context);
     return menuProvider.title == "CONTACTO"
         ? Contacto()
-        : Scaffold(
+        : menuProvider.title=="GRADO"?Oferta():
+
+
+
+    Scaffold(
             resizeToAvoidBottomInset: true,
             backgroundColor: Colors.white,
             appBar: AppBar(

@@ -29,18 +29,12 @@ class _VisorState extends State<Visor> {
       ),
       body: Container(
         padding: const EdgeInsets.only(top: 36.5),
-        child: Container()
-        // PhotoView(
-        //   basePosition: Alignment.topCenter,
-        //   initialScale: PhotoViewComputedScale.covered,
-        //   minScale: PhotoViewComputedScale.covered,
-        //   maxScale: PhotoViewComputedScale.covered * 1.8,
-        //   backgroundDecoration: BoxDecoration(color: Colors.white),
-        //   imageProvider: CachedNetworkImageProvider(
-        //       "https://santacruz.emi.edu.bo/images/App/" +
-        //           visorProvider.link +
-        //           ".png"),
-        // ),
+        child: InteractiveViewer(
+          child: CachedNetworkImage(
+              imageUrl: "https://santacruz.emi.edu.bo/images/App/" +
+                  visorProvider.link +
+                  ".png"),
+        ),
       ),
     );
   }

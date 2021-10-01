@@ -22,9 +22,9 @@ class _VisorPosgradoState extends State<VisorPosgrado> {
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF012B5D),
+        backgroundColor: const Color(0xFF012B5D),
         child: Container(
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back,
           ),
         ),
