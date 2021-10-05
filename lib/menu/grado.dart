@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:emi_uasc/heramientas/slider_doble.dart';
 import 'package:emi_uasc/heramientas/visor.dart';
 import 'package:emi_uasc/provider/visor_provider.dart';
@@ -20,86 +20,11 @@ class _GradoState extends State<Grado> {
   }
 }
 
-//Aqui va la informacion de carreras
-Widget carreras(context) {
-  //La funcion icono crea un GestureDetector con un switch que segun sea el caso alistara el visor con un numero para mostrar cuando se cambien de ventana
-  Widget icono(String i) {
-    final visorProvider = Provider.of<VisorProvider>(context);
-
-    return GestureDetector(
-      onTap: () {
-        switch (i) {
-          case '0':
-            visorProvider.link = "informacion/0";
-            break;
-          case '1':
-            visorProvider.link = "informacion/1";
-            break;
-          case '2':
-            visorProvider.link = "informacion/2";
-            break;
-          case '3':
-            visorProvider.link = "informacion/3";
-            break;
-          case '4':
-            visorProvider.link = "informacion/4";
-            break;
-          case '5':
-            visorProvider.link = "informacion/5";
-            break;
-          case '6':
-            visorProvider.link = "informacion/6";
-            break;
-          case '7':
-            visorProvider.link = "informacion/7";
-            break;
-          case '8':
-            visorProvider.link = "informacion/8";
-            break;
-          case '9':
-            visorProvider.link = "informacion/9";
-            break;
-        }
-        Navigator.of(context).push((_createRoute()));
-      },
-      //Tambien cargamos el logo de cada carrera
-      child: Container(
-        margin: EdgeInsets.all(10),
-        child: Card(
-          child: CachedNetworkImage(
-            imageUrl: 'https://santacruz.emi.edu.bo/images/App/grado/$i.png',
-          ),
-        ),
-      ),
-    );
-  }
-
-  //El cuerpo de carreras tiene un GridView.count que segun parametros creara un rejilla de las carreras
-  return Container(
-      child: GridView.count(
-          physics: BouncingScrollPhysics(),
-          //Segun la orientacion del dispositivo se tendra un tamañao y una cantidad de columnas
-          childAspectRatio:
-              MediaQuery.of(context).orientation == Orientation.portrait
-                  ? 1.38
-                  : 1,
-          crossAxisCount:
-              MediaQuery.of(context).orientation == Orientation.portrait
-                  ? 2
-                  : 3,
-          children: List.generate(10, (index) {
-            return GridTile(
-              child: Container(child: icono("$index")),
-            );
-          })));
-}
-
-//Aqui va la informacion de Informacion
+//Aqui va la informacion de informacion
 Widget informacion() {
   return ListView(
     physics: ScrollPhysics(),
     children: [
-
       Container(
         alignment: Alignment.center,
         margin: EdgeInsets.only(top: 5.h),
@@ -152,12 +77,80 @@ Widget informacion() {
   );
 }
 
+//Aqui va la informacion de carreras
+Widget carreras(context) {
+  //La funcion icono crea un GestureDetector con un switch que segun sea el caso alistara el visor con un numero para mostrar cuando se cambien de ventana
+
+  Widget carrera(String nombre, Color arriba, Color abajo, String info) {
+    final visorProvider = Provider.of<VisorProvider>(context);
+
+    return Container(
+      margin: EdgeInsets.only(left: 10.w, bottom: 3.h),
+      child: GestureDetector(
+        onTap: () {
+          visorProvider.name = nombre;
+          visorProvider.link = "grado/" + nombre;
+          visorProvider.objetivo = "informacion/" + info;
+          Navigator.of(context).push((_createRoute(Visor())));
+        },
+        child: Row(
+          children: [
+            Container(
+              height: 4.5.h,
+              width: 4.5.h,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                      colors: [arriba, abajo],
+                      stops: const [0.1, 0.8],
+                      begin: FractionalOffset.topCenter,
+                      end: FractionalOffset.bottomCenter)),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 10.w),
+              child: Text(
+                nombre,
+                style: TextStyle(
+                    fontFamily: "MontserratRegular",
+                    color: Colors.black54,
+                    fontSize: 15.sp),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  //El cuerpo de carreras tiene un GridView.count que segun parametros creara un rejilla de las carreras
+  return Container(
+    child: ListView(
+      padding: EdgeInsets.only(top: 5.h),
+      children: [
+        carrera(
+            "Química", const Color(0xff1C3B70), const Color(0xff005F92), "8"),
+        carrera("Agronómica", const Color(0xff47A6DE), const Color(0xff68D6F1),
+            "0"),
+        carrera("Civíl", const Color(0xff245B72), const Color(0xff47A09E), "2"),
+        carrera(
+            "Comercial", const Color(0xffF29C38), const Color(0xffF6BD41), "3"),
+        carrera("Mecatrónica", Color(0xff1C3B70), Color(0xff005F92), "6"),
+        carrera("Ambiental", Color(0xff245B72), Color(0xff47A09E), "1"),
+        carrera(
+            "Sistemas Electrónicos", Color(0xffEB3C3A), Color(0xffEF876A), "4"),
+        carrera("Sistemas", Color(0xff47A6DE), Color(0xff68D6F1), "9"),
+        carrera("Industrial", Color(0xffF6C945), Color(0xff5FD5FA), "5"),
+      ],
+    ),
+  );
+}
+
 // Esta ruta agrega una animacion para el cambio de vantana y dirige al visor de imagenes
-Route _createRoute() {
+Route _createRoute(pagina) {
   return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => Visor(),
+      pageBuilder: (context, animation, secondaryAnimation) => pagina,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(0.1, 0.0);
+        var begin = const Offset(0.0, 0.1);
         var end = Offset.zero;
         var curve = Curves.linearToEaseOut;
 

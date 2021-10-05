@@ -70,22 +70,14 @@ class _OfertaState extends State<Oferta> {
               children: [
                 Container(
                     alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(top: 8.h, left: 5.w),
-                    child: GestureDetector(
-                      onTap: () {
+                    padding: EdgeInsets.only(top: 5.h, left: 3.w),
+                    child: IconButton(
+                      onPressed: (){
                         Navigator.of(context).pop();
                       },
-                      child: CircleAvatar(
-                        radius: 2.h,
-                        backgroundColor: Colors.white,
-                        child: const Icon(
-                          Icons.arrow_back,
-
-                          color: Color(0xff1C3B70),
-                          size: 30,
-                        ),
-                      ),
-                    )),
+                     icon: const Icon(Icons.arrow_back_ios,color: Colors.white,),
+                    )
+                ),
                 Container(
                     padding: EdgeInsets.only(top: 3.h),
                     child: Text(

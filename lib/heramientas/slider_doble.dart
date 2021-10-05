@@ -25,13 +25,14 @@ class _SliderDobleState extends State<SliderDoble> {
     return DefaultTabController(
       length: 2,
       child: FadeInUp(
+        duration: const Duration(milliseconds: 500),
         child: Scaffold(
           floatingActionButton: widget.tituloi == "Presencial"
               ? // Tambien se agregara un floatingActionButton para contactarse con la encargada de la biblioteca
               FloatingActionButton(
                 heroTag: "btn1",
                   backgroundColor: Color(0xff4ac959),
-                  child: Icon(FontAwesomeIcons.whatsapp,
+                  child: const Icon(FontAwesomeIcons.whatsapp,
                       color: Colors.white, size: 35),
                   onPressed: () {
                     launch("https://wa.me/59178092485");

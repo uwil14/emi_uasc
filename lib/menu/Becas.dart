@@ -86,12 +86,11 @@ class _BecasState extends State<Becas> {
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
                             fontFamily: "MontserratExtraBold"),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(
+                      margin: const EdgeInsets.only(
                         top: 15,
                         left: 10,
                         right: 10,

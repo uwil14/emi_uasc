@@ -29,11 +29,14 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
         body: Container(
           decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Color(0xff034692), Color(0xff005F92)],
-                  stops: [0.1, 0.8],
-                  begin: FractionalOffset.topCenter,
-                  end: FractionalOffset.bottomCenter)),
+            color: Colors.white
+              // gradient: LinearGradient(
+              //     colors: [Color(0x00ffffff), Color(0xffffffff)],
+              //     stops: [0.1, 0.8],
+              //     begin: FractionalOffset.topCenter,
+              //     end: FractionalOffset.bottomCenter)
+
+          ),
           child: Column(
             children: [
               Container(
@@ -52,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: FadeInRightBig(
                   child: Text(
                     "PRESTIGIO, DISCIPLINA Y MEJORES OPORTUNIDADES",textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white,fontSize: 9.sp,
+                    style: TextStyle(color: const Color(0xff034692),fontSize: 9.sp,
                         fontFamily: "MontserratMediumItalic"),
                   ),
                 ),

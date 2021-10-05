@@ -34,6 +34,8 @@ dependencies:
   video_player: ^2.1.5
   visibility_detector: ^0.2.0
   sizer: ^2.0.13
+  webview_flutter: ^2.1.1
+
 
 dev_dependencies:
   flutter_test:
@@ -71,4 +73,4 @@ flutter:
     - images/
 
 flutter_native_splash:
-  color: "034692"
+  color: "ffffff"

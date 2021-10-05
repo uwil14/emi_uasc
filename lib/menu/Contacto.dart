@@ -54,11 +54,12 @@ class _ContactoState extends State<Contacto> {
       backgroundColor: Colors.white,
       body: FadeInUp(
         // Tiene CustomScrollView para tener slvider como appbar
-        child: CustomScrollView(physics:BouncingScrollPhysics(),
+        child: CustomScrollView(
+          physics:BouncingScrollPhysics(),
           slivers: [
             SliverAppBar(
               pinned: true,
-              backgroundColor: Color(0xff034692),
+              backgroundColor: const Color(0xff034692),
               leading: IconButton(
                 icon: const Icon(
                   Icons.arrow_back_ios,
@@ -83,7 +84,7 @@ class _ContactoState extends State<Contacto> {
                   StretchMode.fadeTitle,
                 ],
                 centerTitle: true,
-                title: Text("EMI UASC",style: const TextStyle(fontFamily: "MontserratSemiBold"),),
+                title: const Text("EMI UASC",style: TextStyle(fontFamily: "MontserratSemiBold"),),
                 background: Stack(
                   fit: StackFit.expand,
                   children: [

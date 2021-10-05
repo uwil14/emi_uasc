@@ -27,11 +27,11 @@ Widget presencial(context) {
       onPressed: () {
         launch("http://186.121.254.138/login");
       },
-      icon: Icon(
+      icon: const Icon(
         Icons.menu_book,
         color: Colors.black,
       ),
-      label: Text(
+      label: const Text(
         "Reservar",
         style: TextStyle(color: Colors.black),
       ),
@@ -115,11 +115,143 @@ Widget imagen(String i) {
               border: Border.all(color: Colors.black)),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(3.0),
-            child: CachedNetworkImage(
-              imageUrl:
-                  'https://santacruz.emi.edu.bo/images/App/bibliotecas/$i.jpeg',
-              fit: BoxFit.cover,
-            ),
+            // child: Expanded(
+            //     child: Container(
+            //       color: Colors.white,
+            //       child: ListView(
+            //         physics: const BouncingScrollPhysics(),
+            //         children: [
+            //           Container(
+            //               padding: EdgeInsets.symmetric(horizontal: 10.w),
+            //               alignment: Alignment.centerLeft,
+            //               child: FadeInRight(
+            //                 delay: const Duration(milliseconds: 500),
+            //                 child: Text(
+            //                   "OFERTA ACADEMICA",
+            //                   style: TextStyle(
+            //                     color: const Color(0xff1C3B70),
+            //                     fontFamily: "MontserratExtraBold",
+            //                     fontSize: 2.h,
+            //                   ),
+            //                 ),
+            //               )),
+            //           FadeInRight(
+            //             delay: const Duration(milliseconds: 500),
+            //             child: Container(
+            //               decoration: const BoxDecoration(
+            //                 color: Color(0xffFFCB00),
+            //                 borderRadius: BorderRadius.only(
+            //                     topLeft: Radius.circular(30),
+            //                     bottomLeft: Radius.circular(30)),
+            //               ),
+            //               height: 14.h,
+            //               margin: EdgeInsets.only(top: 1.h, bottom: 1.h, left: 3.w),
+            //               padding: EdgeInsets.only(left: 5.w),
+            //               child: Row(
+            //                 children: [icono("0"), icono("1"), icono("2"), icono("3")],
+            //               ),
+            //             ),
+            //           ),
+            //           Container(
+            //               padding: EdgeInsets.symmetric(horizontal: 3.w),
+            //               alignment: Alignment.centerRight,
+            //               child: FadeInLeft(
+            //                 delay: const Duration(milliseconds: 1000),
+            //                 child: Text(
+            //                   "EXPERIENCIA EMI",
+            //                   style: TextStyle(
+            //                     color: const Color(0xff1C3B70),
+            //                     fontFamily: "MontserratExtraBold",
+            //                     fontSize: 2.h,
+            //                   ),
+            //                 ),
+            //               )),
+            //           FadeInLeft(
+            //             delay: const Duration(milliseconds: 1000),
+            //             child: Container(
+            //               decoration: const BoxDecoration(
+            //                 color: Color(0xffFFCB00),
+            //                 borderRadius: BorderRadius.only(
+            //                     topRight: Radius.circular(30),
+            //                     bottomRight: Radius.circular(30)),
+            //               ),
+            //               height: 14.h,
+            //               margin: EdgeInsets.only(top: 1.h, bottom: 1.h, right: 3.w),
+            //               padding: EdgeInsets.only(right: 5.w),
+            //               child: Row(
+            //                 children: [icono("8"), icono("6"), icono("5"), icono("4")],
+            //               ),
+            //             ),
+            //           ),
+            //           Container(
+            //               padding: EdgeInsets.symmetric(horizontal: 3.w),
+            //               alignment: Alignment.centerLeft,
+            //               child: FadeInRight(
+            //                 delay: const Duration(milliseconds: 1500),
+            //                 child: Text(
+            //                   "MOVILIDAD ESTUDIANTIL",
+            //                   style: TextStyle(
+            //                     color: const Color(0xff1C3B70),
+            //                     fontFamily: "MontserratExtraBold",
+            //                     fontSize: 2.h,
+            //                   ),
+            //                 ),
+            //               )),
+            //           FadeInRight(
+            //             delay: const Duration(milliseconds: 1500),
+            //             child: Container(
+            //               decoration: const BoxDecoration(
+            //                 color: Color(0xffFFCB00),
+            //                 borderRadius: BorderRadius.only(
+            //                     topLeft: Radius.circular(30),
+            //                     bottomLeft: Radius.circular(30)),
+            //               ),
+            //               height: 14.h,
+            //               margin: EdgeInsets.only(top: 1.h, bottom: 1.h, left: 3.w),
+            //               padding: EdgeInsets.only(left: 5.w),
+            //               child: Row(
+            //                 children: [icono("11"), icono("11")],
+            //               ),
+            //             ),
+            //           ),
+            //           Container(
+            //               padding: EdgeInsets.symmetric(horizontal: 3.w),
+            //               alignment: Alignment.centerRight,
+            //               child: FadeInLeft(
+            //                 delay: const Duration(milliseconds: 2000),
+            //                 child: Text(
+            //                   "CONOCENOS",
+            //                   style: TextStyle(
+            //                     color: const Color(0xff1C3B70),
+            //                     fontFamily: "MontserratExtraBold",
+            //                     fontSize: 2.h,
+            //                   ),
+            //                 ),
+            //               )),
+            //           FadeInLeft(
+            //             delay: const Duration(milliseconds: 2000),
+            //             child: Container(
+            //               decoration: const BoxDecoration(
+            //                 color: Color(0xffFFCB00),
+            //                 borderRadius: BorderRadius.only(
+            //                     topRight: Radius.circular(30),
+            //                     bottomRight: Radius.circular(30)),
+            //               ),
+            //               height: 14.h,
+            //               margin: EdgeInsets.only(top: 1.h, bottom: 1.h, right: 3.w),
+            //               padding: EdgeInsets.only(right: 5.w),
+            //               child: Row(
+            //                 children: [
+            //                   icono("10"),
+            //                   icono("10"),
+            //                   icono("11"),
+            //                 ],
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     )),
           ),
         )),
   );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class Buzon extends StatefulWidget {
   @override
@@ -8,6 +9,9 @@ class Buzon extends StatefulWidget {
 class _BuzonState extends State<Buzon> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const WebView(
+      initialUrl: "186.121.203.35/informanos",
+        javascriptMode: JavascriptMode.unrestricted,
+    );
   }
 }

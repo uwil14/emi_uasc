@@ -4,19 +4,21 @@ import 'package:emi_uasc/heramientas/plantilla.dart';
 import 'package:emi_uasc/menu/oferta.dart';
 import 'package:emi_uasc/provider/menu_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:panorama/panorama.dart';
 import 'package:provider/provider.dart';
 import 'becas.dart';
 import 'bibliotecas.dart';
 import 'buzon.dart';
 import 'contacto.dart';
 import 'convenios.dart';
-import 'grado1.dart';
+import 'grado.dart';
 import 'idiomas.dart';
 import 'instruccion.dart';
 import 'movilidad.dart';
 import 'posgrado.dart';
 import 'tecnico.dart';
 import 'uniforme.dart';
+import 'package:sizer/sizer.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -28,111 +30,333 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     Widget icono(String i) {
       final menuProvider = Provider.of<MenuProvider>(context);
-      return GestureDetector(
-          onTap: () {
-            switch (i) {
-              case '0':
-                menuProvider.body = Oferta();
-                menuProvider.title = "GRADO";
-                break;
-              case '1':
-                menuProvider.body = Posgrado();
-                menuProvider.title = "POSGRADO";
-                break;
-              case '2':
-                menuProvider.body = Tecnico();
-                menuProvider.title = "TECNICO";
-                break;
-              case '3':
-                menuProvider.body = Idiomas();
-                menuProvider.title = "IDIOMAS";
-                break;
-              case '4':
-                menuProvider.body = Convenios();
-                menuProvider.title = "CONVENIOS";
-                break;
-              case '5':
-                menuProvider.body = Becas();
-                menuProvider.title = "BECAS";
-                break;
-              case '6':
-                menuProvider.body = Instruccion();
-                menuProvider.title = "INSTRUCCIÓN";
-                break;
-              case '7':
-                menuProvider.body = Bibliotecas();
-                menuProvider.title = "BIBLIOTECAS";
-                break;
-              case '8':
-                menuProvider.body = Uniformes();
-                menuProvider.title = "UNIFORMES";
-                break;
-              case '9':
-                menuProvider.body = Buzon();
-                menuProvider.title = "BUZON";
-                break;
-              case '10':
-                menuProvider.body = Contacto();
-                menuProvider.title = "CONTACTO";
-                break;
-              case '11':
-                menuProvider.body = Movilidad();
-                menuProvider.title = "MOVILIDAD";
-                break;
-            }
-            Navigator.of(context).push((_createRoute()));
-          },
-          child: Card(
-            child: Container(
-              padding: EdgeInsets.all(15),
-              child: CachedNetworkImage(
-                imageUrl: 'https://santacruz.emi.edu.bo/images/App/menu/$i.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-          ));
+      return Expanded(
+          child: GestureDetector(
+              onTap: () {
+                switch (i) {
+                  case '0':
+                    menuProvider.body = Grado();
+                    menuProvider.title = "GRADO";
+                    break;
+                  case '1':
+                    menuProvider.body = Posgrado();
+                    menuProvider.title = "POSGRADO";
+                    break;
+                  case '2':
+                    menuProvider.body = Tecnico();
+                    menuProvider.title = "TECNICO";
+                    break;
+                  case '3':
+                    menuProvider.body = Idiomas();
+                    menuProvider.title = "IDIOMAS";
+                    break;
+                  case '4':
+                    menuProvider.body = Convenios();
+                    menuProvider.title = "CONVENIOS";
+                    break;
+                  case '5':
+                    menuProvider.body = Becas();
+                    menuProvider.title = "BECAS";
+                    break;
+                  case '6':
+                    menuProvider.body = Instruccion();
+                    menuProvider.title = "INSTRUCCIÓN";
+                    break;
+                  case '7':
+                    menuProvider.body = Bibliotecas();
+                    menuProvider.title = "BIBLIOTECAS";
+                    break;
+                  case '8':
+                    menuProvider.body = Uniformes();
+                    menuProvider.title = "UNIFORMES";
+                    break;
+                  case '9':
+                    menuProvider.body = Buzon();
+                    menuProvider.title = "BUZON";
+                    break;
+                  case '10':
+                    menuProvider.body = Contacto();
+                    menuProvider.title = "CONTACTO";
+                    break;
+                  case '11':
+                    menuProvider.body = Movilidad();
+                    menuProvider.title = "MOVILIDAD";
+                    break;
+                }
+                Navigator.of(context).push((_createRoute()));
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 2.h, horizontal: 1.w),
+                width: 23.w,
+                child: CachedNetworkImage(
+                  imageUrl:
+                      'https://santacruz.emi.edu.bo/images/App/menu/$i.png',
+                ),
+              )));
     }
 
-    return Container(
-      child: FadeInUp(
-          child: Container(
-              padding: EdgeInsets.only(
-                top: MediaQuery.of(context).orientation == Orientation.portrait
-                    ? 0
-                    : MediaQuery.of(context).size.height * 0.02,
+    return Column(
+      children: [
+        Container(
+          height: 60.h,
+          padding: EdgeInsets.only(top: 3.h),
+          alignment: Alignment.center,
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Color(0xff034693), Color(0xff034693)],
+                  stops: [0.3, 1],
+                  begin: FractionalOffset.topCenter,
+                  end: FractionalOffset.bottomCenter)),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Panorama(
+                hotspots: [
+                  Hotspot(
+                    latitude: 0,
+                    longitude: 50,
+                    width: 30.h,
+                    height: 30.h,
+                    widget: Image.asset(
+                      'images/emi.png',
+                    ),
+                  ),
+
+                  Hotspot(
+                    latitude: 0,
+                    longitude: 230,
+                    width: 30.h,
+                    height: 30.h,
+                    widget: Image.asset(
+                      'images/emi.png',
+                    ),
+                  ),
+                  Hotspot(
+                    latitude: 0,
+                    longitude: 315,
+                    width: 30.h,
+                    height: 30.h,
+                    widget: Image.asset(
+                      'images/emi.png',
+                    ),
+                  ),
+                ],
+                interactive: false,
+                animSpeed: 2,
+                child: const Image(
+                  image: CachedNetworkImageProvider(
+                      'https://santacruz.emi.edu.bo/images/App/virtual/modulo.JPG'),
+                ),
               ),
-              height: MediaQuery.of(context).orientation == Orientation.portrait
-                  ? MediaQuery.of(context).size.height * 0.7
-                  : MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).orientation == Orientation.portrait
-                  ? MediaQuery.of(context).size.width
-                  : MediaQuery.of(context).size.width * 0.52,
-              child: GridView.count(
-                physics: BouncingScrollPhysics(),
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                shrinkWrap: true,
-                childAspectRatio:
-                    MediaQuery.of(context).orientation == Orientation.portrait
-                        ? 1
-                        : 1,
-                crossAxisCount:
-                    MediaQuery.of(context).orientation == Orientation.portrait
-                        ? 3
-                        : 4,
-                children: List.generate(12, (index) {
-                  return icono("$index");
-                }),
-              ))),
+              Container(
+                margin: EdgeInsets.only(bottom: 1.h, right: 3.w),
+                alignment: Alignment.bottomCenter,
+                child: Text(
+                  "EMI UASC",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: "MontserratExtraBold",
+                      color: Colors.white,
+                      fontSize: 30.sp),
+                ),
+              )
+            ],
+          ),
+        ),
+        Expanded(
+            child: Container(
+          color: Colors.white,
+          child: FadeInRight(
+            delay: const Duration(milliseconds: 1500),
+
+            child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              Column(
+                children: [
+                  Container(
+                      width: 30.w,
+                      margin: EdgeInsets.only(top: 1.5.h, left: 10.w),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "OFERTA ACADÉMICA",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: const Color(0xff1C3B70),
+                          fontFamily: "MontserratExtraBold",
+                          fontSize: 2.h,
+                        ),
+                      )),
+                  Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
+                    height: 30.h,
+                    width: 60.w,
+                    margin: EdgeInsets.only(top: 1.h, bottom: 1.h, left: 10.w),
+                    padding: EdgeInsets.only(),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              icono("0"),
+                              icono("1"),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [icono("2"), icono("3")],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                      width: 40.w,
+                      margin: EdgeInsets.only(top: 1.5.h, left: 10.w),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "EMI EXPERIENCE",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: const Color(0xff1C3B70),
+                          fontFamily: "MontserratExtraBold",
+                          fontSize: 2.h,
+                        ),
+                      )),
+                  Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
+                    height: 30.h,
+                    width: 60.w,
+                    margin: EdgeInsets.only(top: 1.h, bottom: 1.h, left: 10.w),
+                    padding: EdgeInsets.only(),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              icono("8"),
+                              icono("6"),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [icono("5"), icono("4")],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                      width: 40.w,
+                      margin: EdgeInsets.only(top: 1.5.h, left: 10.w),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "MOVILIDAD ESTUDIANTIL",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: const Color(0xff1C3B70),
+                          fontFamily: "MontserratExtraBold",
+                          fontSize: 2.h,
+                        ),
+                      )),
+                  Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
+                    height: 30.h,
+                    width: 60.w,
+                    margin: EdgeInsets.only(top: 1.h, bottom: 1.h, left: 10.w),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              icono("11"),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              icono("11"),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                      width: 40.w,
+                      margin: EdgeInsets.only(top: 1.5.h, left: 10.w,right: 10.w),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "MÁS INFORMACION",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: const Color(0xff1C3B70),
+                          fontFamily: "MontserratExtraBold",
+                          fontSize: 2.h,
+                        ),
+                      )),
+                  Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
+                    height: 30.h,
+                    width: 60.w,
+                    margin: EdgeInsets.only(top: 1.h, bottom: 1.h, left: 10.w,right: 10.w),
+                    padding: EdgeInsets.only(),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Row(
+                            children: [
+                              icono("10"),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Row(
+                            children: [icono("9"), icono("10"),],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),),
+        ))
+      ],
     );
   }
 }
 
 Route _createRoute() {
   return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => const Plantilla(),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const Plantilla(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = const Offset(0.1, 1.0);
+        var begin = const Offset(0.0, 0.1);
         var end = Offset.zero;
         var curve = Curves.linearToEaseOut;
 
