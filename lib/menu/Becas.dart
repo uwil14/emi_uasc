@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class Becas extends StatefulWidget {
+  const Becas({Key? key}) : super(key: key);
+
   @override
   _BecasState createState() => _BecasState();
 }
@@ -14,11 +16,9 @@ class _BecasState extends State<Becas> {
   Widget build(BuildContext context) {
     Widget item(String url) {
       String dir = "https://santacruz.emi.edu.bo/images/App/becas/";
-      return Container(
-        child: CachedNetworkImage(
-          imageUrl: "$dir$url",
-          fit: BoxFit.fill,
-        ),
+      return CachedNetworkImage(
+        imageUrl: "$dir$url",
+        fit: BoxFit.fill,
       );
     }
 
@@ -35,80 +35,79 @@ class _BecasState extends State<Becas> {
 
     // Para crear la estructura de Becas se usara la clase creada SliderDoble donde le pasaremos el contenido y titulo de cada slider
     return Scaffold(
-      backgroundColor: Colors.white,
+        backgroundColor: Colors.white,
         body: FadeInUp(
             child: Stack(
-              fit: StackFit.expand,
+          fit: StackFit.expand,
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 10.h),
+            ),
+            ListView(
+              padding: const EdgeInsets.all(0),
               children: [
+
                 Container(
-                  margin: EdgeInsets.only(top: 10.h),
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [Colors.white, Color(0xff034692)],
-                          stops: [0.1, 1],
-                          begin: FractionalOffset.topCenter,
-                          end: FractionalOffset.bottomCenter)),
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.only(top: 2.h, left: 2.w),
+                  child: Text(
+                    "NUESTRAS BECAS",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.sp,
+                        fontFamily: "MontserratExtraBold"),
+                  ),
                 ),
-                ListView(
-                  children: [
-                    Container( margin: EdgeInsets.only(top: 1.h),child: CarouselSlider(
-                      options: CarouselOptions(
-                        enableInfiniteScroll: true,
-                        autoPlay: true,
-                        aspectRatio:
-                        MediaQuery
-                            .of(context)
-                            .orientation == Orientation.portrait
-                            ? 1.2
-                            : 1.8,
-                        enlargeCenterPage: false,
-                        enlargeStrategy: CenterPageEnlargeStrategy.height,
-                        autoPlayInterval: Duration(seconds: 3),
-                        autoPlayAnimationDuration: Duration(milliseconds: 800),
-                        autoPlayCurve: Curves.fastOutSlowIn,
-                        pauseAutoPlayOnTouch: true,
-                      ),
-                      items: cardList.map((card) {
-                        return Builder(builder: (BuildContext context) {
-                          return Container(
-                            child: Card(
-                              child: card,
-                            ),
-                          );
-                        });
-                      }).toList(),
-                    ),),
-                    Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.only(top: 2.h),
-                      child: Text(
-                        "NUESTRAS BECAS",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.sp,
-                            fontFamily: "MontserratExtraBold"),
-                      ),
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 15,
+                    left: 10,
+                    right: 10,
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.only(
+                        top: 1.h, left: 2.w, right: 2.w, bottom: 3.h),
+                    child: const Text(
+                      "Las Beca que otorga la  Escuela Militar de Ingeniería tiene la finalidad de incentivar a Estudiantes destacados en el campo académico, científico, Investigación, cultural y deportivo; apoyar a estudiantes de escasos recursos económicos o que presenten algún tipo de discapacidad permanente.",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(color: Colors.black),
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(
-                        top: 15,
-                        left: 10,
-                        right: 10,
-                      ),
-                      child: Container(
-                        padding:
-                        EdgeInsets.only(
-                            top: 10, left: 10, right: 10, bottom: 10),
-                        child: Text(
-                          "Las Beca que otorga la  Escuela Militar de Ingeniería tiene la finalidad de incentivar a Estudiantes destacados en el campo académico, científico, Investigación, cultural y deportivo; apoyar a estudiantes de escasos recursos económicos o que presenten algún tipo de discapacidad permanente.",
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
+                CarouselSlider(
+                  options: CarouselOptions(
+                    enableInfiniteScroll: true,
+                    autoPlay: true,
+                    aspectRatio: MediaQuery.of(context).orientation ==
+                        Orientation.portrait
+                        ? 1.2
+                        : 1.8,
+                    enlargeCenterPage: false,
+                    enlargeStrategy: CenterPageEnlargeStrategy.height,
+                    autoPlayInterval: const Duration(seconds: 3),
+                    autoPlayAnimationDuration:
+                    const Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    pauseAutoPlayOnTouch: true,
+                  ),
+                  items: cardList.map((card) {
+                    return Builder(builder: (BuildContext context) {
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(25.0),
+                        child: Container(
+                          margin: EdgeInsets.all(1.h),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: card,
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                )
+                      );
+                    });
+                  }).toList(),
+                ),
               ],
-            )));
+            )
+          ],
+        )));
   }
 }

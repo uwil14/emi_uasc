@@ -4,6 +4,7 @@ import 'package:emi_uasc/menu/contacto.dart';
 import 'package:emi_uasc/menu/oferta.dart';
 import 'package:emi_uasc/provider/menu_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -19,14 +20,12 @@ class _PlantillaState extends State<Plantilla> {
   @override
 
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.light,
+        statusBarColor: Colors.transparent));
 
     final menuProvider = Provider.of<MenuProvider>(context);
-    return menuProvider.title == "CONTACTO"
-        ? Contacto()
-        :
-
-
-
+    return
      Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -42,16 +41,7 @@ class _PlantillaState extends State<Plantilla> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Container(
-                    alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.only(top: 4.h, left: 3.w,bottom: 1.h),
-                    child: IconButton(
-                      onPressed: (){
-                        Navigator.of(context).pop();
-                      },
-                      icon: const Icon(Icons.arrow_back_ios,color: Colors.white,),
-                    )
-                ),
+
                 Container(
                   margin: EdgeInsets.only(top: 3.h),
                   alignment: Alignment.center,
@@ -63,7 +53,16 @@ class _PlantillaState extends State<Plantilla> {
                       color: Colors.white,
                       fontSize: 25.sp),
                 ),),
-
+                Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(top: 4.h, left: 3.w,bottom: 1.h),
+                    child: IconButton(
+                      onPressed: (){
+                        Navigator.of(context).pop();
+                      },
+                      icon: const Icon(Icons.arrow_back_ios,color: Colors.white,),
+                    )
+                ),
               ],
             ),
           ),

@@ -41,7 +41,7 @@ class _SliderDobleState extends State<SliderDoble> {
               : Container(),
           backgroundColor: Colors.white,
           appBar: TabBar(
-            unselectedLabelColor: Colors.grey,
+            unselectedLabelColor: Colors.black,
             indicatorColor: menuProvider.title == "INSTRUCCIÓN"
                 ? Color(0xff04230C)
                 : menuProvider.title == "BIBLIOTECAS"

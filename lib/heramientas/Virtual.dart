@@ -14,32 +14,27 @@ class _VirtualState extends State<Virtual> {
   @override
   Widget build(BuildContext context) {
     final virtualProvider = Provider.of<VirtualProvider>(context);
-    return Scaffold(
-      backgroundColor: Colors.grey,
-      //En el AppBar estara un boton para volver a la ventana anterior y un titulo por defecto de de EMI 360
+    return  Scaffold(
       appBar: AppBar(
+
+        foregroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
-        backgroundColor: Colors.black,
-        automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+        ),
         centerTitle: true,
-        title: FadeInDown(
-          child: const Text(
-            "EMI 360",
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        leading: FadeInDown(
-          child: IconButton(
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
+        title:Text(  "EMI 360",style: const TextStyle(color: Colors.black,fontFamily: "MontserratSemiBold"),),
+
+
       ),
+      backgroundColor: Colors.white,
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -57,18 +52,20 @@ class _VirtualState extends State<Virtual> {
           Container(
             margin: EdgeInsets.only(
                 bottom: MediaQuery.of(context).size.height * 0.15),
-            child: BounceInDown(
-              child: Text(
-                virtualProvider.title,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-              ),
+            child: Text(
+              virtualProvider.title,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold),
             ),
           )
         ],
-      ),
-    );
+      ),);
+
+
+
+
+
   }
 }

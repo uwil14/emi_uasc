@@ -18,14 +18,21 @@ class _PosgradoListadoState extends State<PosgradoListado> {
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        leading: FadeInRight(child: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black,), onPressed: () {
-          Navigator.of(context).pop();
-        },),),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         centerTitle: true,
-        title: FadeInRight(child: Text(
-          posgradoProvider.title,style: TextStyle(color: Colors.black),
-        ),),
+        title: Text(
+          posgradoProvider.title,
+          style:
+              TextStyle(color: Colors.black, fontFamily: "MontserratSemiBold"),
+        ),
       ),
       body: posgradoProvider.body,
     );

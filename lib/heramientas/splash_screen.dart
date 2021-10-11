@@ -29,12 +29,11 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
         body: Container(
           decoration: const BoxDecoration(
-            color: Colors.white
-              // gradient: LinearGradient(
-              //     colors: [Color(0x00ffffff), Color(0xffffffff)],
-              //     stops: [0.1, 0.8],
-              //     begin: FractionalOffset.topCenter,
-              //     end: FractionalOffset.bottomCenter)
+              gradient: LinearGradient(
+                  colors: [Color(0xff005F92), Color(0xff1C3B70)],
+                  stops: [0.1, 0.8],
+                  begin: FractionalOffset.topCenter,
+                  end: FractionalOffset.bottomCenter)
 
           ),
           child: Column(
@@ -42,24 +41,24 @@ class _SplashScreenState extends State<SplashScreen> {
               Container(
                 padding:
                 EdgeInsets.only(top: 40.h),
-                child: FadeInLeftBig(
+                child: FadeInDownBig(
                   child: Image.asset(
                     "images/castillo.png",
                     height: 20.h,
                   ),
                 ),
               ),
-              Container(
-                padding:
-                EdgeInsets.only(top: 32.h),
-                child: FadeInRightBig(
-                  child: Text(
-                    "PRESTIGIO, DISCIPLINA Y MEJORES OPORTUNIDADES",textAlign: TextAlign.center,
-                    style: TextStyle(color: const Color(0xff034692),fontSize: 9.sp,
-                        fontFamily: "MontserratMediumItalic"),
-                  ),
-                ),
-              ),
+              // Container(
+              //   padding:
+              //   EdgeInsets.only(top: 32.h),
+              //   child: FadeInRightBig(
+              //     child: Text(
+              //       "PRESTIGIO, DISCIPLINA Y MEJORES OPORTUNIDADES",textAlign: TextAlign.center,
+              //       style: TextStyle(color: Colors.white,fontSize: 9.sp,
+              //           fontFamily: "MontserratMediumItalic"),
+              //     ),
+              //   ),
+              // ),
               Container()
             ],
           ),

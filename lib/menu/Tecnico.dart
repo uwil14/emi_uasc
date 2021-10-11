@@ -27,19 +27,29 @@ Widget carreras(context) {
       onTap: () {
         switch (i) {
           case '0':
-            visorProvider.link = "informacion/10";
+            visorProvider.name = "Informática";
+            visorProvider.link = "grado/Informática";
+            visorProvider.objetivo = "informacion/10" ;
             break;
           case '1':
-            visorProvider.link = "informacion/11";
+            visorProvider.name = "Construcción Civil";
+            visorProvider.link = "grado/Informatica";
+            visorProvider.objetivo = "informacion/11" ;
             break;
           case '2':
-            visorProvider.link = "informacion/12";
+            visorProvider.name = "Energías Renovables";
+            visorProvider.link = "grado/Energías Renovables";
+            visorProvider.objetivo = "informacion/12" ;
             break;
           case '3':
-            visorProvider.link = "informacion/13";
+            visorProvider.name = "Sistemas Electrónicos";
+            visorProvider.link = "grado/Sistemas Electrónicos";
+            visorProvider.objetivo = "informacion/13" ;
             break;
           case '4':
-            visorProvider.link = "informacion/14";
+            visorProvider.name = "Diseño Gráfico";
+            visorProvider.link = "grado/Diseño Gráfico";
+            visorProvider.objetivo = "informacion/14" ;
             break;
         }
         Navigator.of(context).push((_createRoute()));
@@ -138,7 +148,7 @@ Route _createRoute() {
   return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => Visor(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(0.1, 0.0);
+        var begin = Offset(0.0, 0.1);
         var end = Offset.zero;
         var curve = Curves.linearToEaseOut;
 

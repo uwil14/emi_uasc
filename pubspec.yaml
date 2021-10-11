@@ -35,6 +35,8 @@ dependencies:
   visibility_detector: ^0.2.0
   sizer: ^2.0.13
   webview_flutter: ^2.1.1
+  ftpconnect: ^1.0.0
+  flutter_svg: ^0.22.0
 
 
 dev_dependencies:
@@ -71,6 +73,7 @@ flutter:
   uses-material-design: true
   assets:
     - images/
+    - images/menu/
 
 flutter_native_splash:
   color: "ffffff"

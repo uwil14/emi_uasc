@@ -15,54 +15,60 @@ class Visor extends StatefulWidget {
 class _VisorState extends State<Visor> {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.dark,
+    SystemChrome.setSystemUIOverlayStyle( const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.light,
         statusBarColor: Colors.transparent));
     final visorProvider = Provider.of<VisorProvider>(context);
 
     return WillPopScope(
+
       onWillPop: () async {
-        SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        SystemChrome.setSystemUIOverlayStyle( const SystemUiOverlayStyle(
             statusBarIconBrightness: Brightness.light,
             statusBarColor: Colors.transparent));
         return true;
       },
       child: Scaffold(
+        appBar: AppBar(
+
+          foregroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+            onPressed: () {
+              SystemChrome.setSystemUIOverlayStyle(
+                   const SystemUiOverlayStyle(
+                      statusBarIconBrightness: Brightness.light,
+                      statusBarColor: Colors.transparent));
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+          ),
+          centerTitle: true,
+          title:Text( visorProvider.name,style: const TextStyle(color: Colors.black,fontFamily: "MontserratSemiBold"),),
+
+
+        ),
           backgroundColor: Colors.white,
-          body: Stack(
-            children: [
-              FadeInUp(
-                duration: const Duration(milliseconds: 200),
-                child: Container(
-                  child: InteractiveViewer(
-                    child: Image(
-                      image: CachedNetworkImageProvider(
-                          'https://santacruz.emi.edu.bo/images/App/' +
-                              visorProvider.objetivo +
-                              '.png'),
-                    ),
-                  ),
-                  width: 100.w,
+          body: FadeInUp(
+            duration: const Duration(milliseconds: 200),
+            child: SizedBox(
+              child: InteractiveViewer(
+
+                child: Image(
+
+                  image: CachedNetworkImageProvider(
+                      'https://santacruz.emi.edu.bo/images/App/' +
+                          visorProvider.objetivo +
+                          '.png'),
                 ),
               ),
-              Container(
-                  alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(top: 4.h, left: 3.w),
-                  child: IconButton(
-                    onPressed: () {
-                      SystemChrome.setSystemUIOverlayStyle(
-                          const SystemUiOverlayStyle(
-                              statusBarIconBrightness: Brightness.light,
-                              statusBarColor: Colors.transparent));
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.black,
-                    ),
-                  )),
-            ],
-          )),
+              width: 100.w,
+            ),
+          ),),
     );
   }
 }

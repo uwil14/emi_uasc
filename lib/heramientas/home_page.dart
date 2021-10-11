@@ -183,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                                 "https://notas.emi.edu.bo/login"),
                             enlaces("E-libro", "",
                                 "https://elibro.net/es/lc/emisantacruz"),
-                            enlaces("Mi libreria", "digital",
+                            enlaces("Mi Libreria", "Digital",
                                 "https://site1.milibreriadigital.com/"),
                             enlaces("Repositorio", "de Grado",
                                 "http://repositorio.servicios.emi.edu.bo/Visita/view"),

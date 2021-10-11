@@ -17,7 +17,7 @@ class _UniformesState extends State<Uniformes> {
           backgroundColor: Colors.white,
           appBar: const TabBar(
             isScrollable: true,
-            unselectedLabelColor: Colors.grey,
+            unselectedLabelColor: Colors.black,
             indicatorColor: Color(0xff034692),
             labelColor: Color(0xff034692),
             tabs: [

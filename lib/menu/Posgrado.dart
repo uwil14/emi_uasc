@@ -23,72 +23,69 @@ class _PosgradoState extends State<Posgrado> {
 
 Widget cursos(context) {
   Widget carrera(List<String> nombres, String categoria) {
-    return FadeInRight(
-        child: Container(
-            child: ListView.builder(
-              physics:BouncingScrollPhysics(),
-      itemBuilder: (BuildContext ctxt, int index) {
-        return GestureDetector(
-          onTap: () {
-            Navigator.of(context).push((_createRoute(VisorPosgrado(
-                'https://santacruz.emi.edu.bo/images/App/posgrado/$categoria/info_$index.jpeg',
-                "INFORMACION"))));
-          },
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.20,
-            margin: EdgeInsets.all(10),
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Container(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    child: Container(
-                      color: Colors.black,
-                      child: Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          Opacity(
-                            opacity: 0.5,
-                            child: CachedNetworkImage(
-                              imageUrl:
-                                  'https://santacruz.emi.edu.bo/images/App/posgrado/$categoria/$index.png',
-                              fit: BoxFit.cover,
-                            ),
-                          )
-                        ],
+    return FadeInUp(
+        duration: const Duration(milliseconds: 200),
+        child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (BuildContext ctxt, int index) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push((_createRoute(VisorPosgrado(
+                    'https://santacruz.emi.edu.bo/images/App/posgrado/$categoria/info_$index.jpeg',
+                    "POSGRADO"))));
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.20,
+                margin: const EdgeInsets.all(10),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      child: Container(
+                        color: Colors.black,
+                        child: Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            Opacity(
+                              opacity: 0.5,
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                    'https://santacruz.emi.edu.bo/images/App/posgrado/$categoria/$index.png',
+                                fit: BoxFit.cover,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
+                    Container(
+                      margin: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).size.height * 0.03,
+                      ),
+                      child: Text(
+                        nombres[index],
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      ),
+                    )
+                  ],
                 ),
-                Container(
-                  margin: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).size.height * 0.03,
-                  ),
-                  child: Text(
-                    nombres[index],
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                )
-              ],
-            ),
-          ),
-        );
-      },
-      itemCount: nombres.length,
-    )));
+              ),
+            );
+          },
+          itemCount: nombres.length,
+        ));
   }
 
-//Se usara icono() para crear la tarjeta de cada categoria
   Widget icono(String i) {
     final posgradoProvider = Provider.of<PosgradoProvider>(context);
     return Card(
-      margin: EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 5),
+      margin: const EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 5),
       child: GestureDetector(
         onTap: () {
           switch (i) {
@@ -124,45 +121,38 @@ Widget cursos(context) {
           }
           Navigator.of(context).push((_createRoute(PosgradoListado())));
         },
-        child: CachedNetworkImage(
-          imageUrl: 'https://santacruz.emi.edu.bo/images/App/posgrado/$i.png',
-        ),
+        child: Container(child: CachedNetworkImage(
+          imageUrl: 'https://santacruz.emi.edu.bo/images/App/posgrado/$i-8.png',
+        ),padding: EdgeInsets.all(3.h),),
       ),
     );
   }
 
-//Para cursos se usara un GridView.count pero que mostrara las 4 categorias como si fuera un columna
-  return Container(
-      child: GridView.count(
-          physics:BouncingScrollPhysics(),
-          childAspectRatio:
-              MediaQuery.of(context).orientation == Orientation.portrait
-                  ? 2.2
-                  : 0.9,
-          crossAxisCount:
-              MediaQuery.of(context).orientation == Orientation.portrait
-                  ? 1
-                  : 4,
-          children: List.generate(4, (index) {
-            return GridTile(
-              child: icono("$index"),
-            );
-          })));
+  return GridView.count(
+      physics: BouncingScrollPhysics(),
+
+      crossAxisCount:
+          MediaQuery.of(context).orientation == Orientation.portrait
+              ? 2
+              : 4,
+      children: List.generate(4, (index) {
+        return GridTile(
+          child: icono("$index"),
+        );
+      }));
 }
 
-//Aqui va informacion y llama BarraRedes y Directores
 Widget informacion() {
   return ListView(
-    physics: ScrollPhysics(),
+    physics: const ScrollPhysics(),
     children: [
-
       Container(
         alignment: Alignment.center,
         margin: EdgeInsets.only(top: 5.h),
         child: Text(
           "MISIÓN",
           style: TextStyle(
-              color: Color(0xff034692),
+              color: const Color(0xff034692),
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               fontFamily: "MontserratExtraBold"),
@@ -207,13 +197,11 @@ Widget informacion() {
     ],
   );
 }
-
-//Usamos _createRoute para añadir una animacion al cambio de ventana y esta vez se recibe la sgte pestaña como parametro
 Route _createRoute(Widget pagina) {
   return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => pagina,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(0.1, 0.0);
+        var begin = const Offset(0.0, 0.1);
         var end = Offset.zero;
         var curve = Curves.linearToEaseOut;
 
