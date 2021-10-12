@@ -65,7 +65,7 @@ class _InstruccionState extends State<Instruccion> {
                 padding:
                 EdgeInsets.only(
                     top: 1.h, left: 2.w, right: 2.w, bottom: 1.h),
-                child: Text(
+                child: const Text(
                   "Tiene una duración de 1 año y se realiza los días sábados en las mañanas en los alrededores de la unidad, es un requisito obligatorio para poder obtener la libreta de reserva. Además de ser una ventaja para todo aquello alumnos que no realzaron el servicio militar. ",
                   textAlign: TextAlign.justify,
                   style: TextStyle(color: Colors.black),
@@ -106,7 +106,7 @@ class _InstruccionState extends State<Instruccion> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 15,
                 left: 10,
                 right: 10,
@@ -115,7 +115,7 @@ class _InstruccionState extends State<Instruccion> {
                 padding:
                 EdgeInsets.only(
                     top: 1.h, left: 2.w, right: 2.w, bottom: 5.h),
-                child: Text(
+                child: const Text(
                   "La Instrucción Militar como pilar fundamental para la formación de los futuros Subtenientes de Reserva, quienes con altos valores cívico patrióticos desarrollan sus actividades demostrando su valor, vigor, ganas de superación y servicio a la Patria, cultivando la disciplina, respeto a los símbolos patrios, conservación de la soberanía nacional y defensa de nuestro territorio.",
                   textAlign: TextAlign.justify,
                   style: TextStyle(color: Colors.black),

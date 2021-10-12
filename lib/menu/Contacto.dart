@@ -46,37 +46,39 @@ class _ContactoState extends State<Contacto> {
         ),
       );
     });
-// Este el cuerpo de Contacto
     return Scaffold(
       backgroundColor: Colors.white,
       body: FadeInUp(
-        // Tiene CustomScrollView para tener slvider como appbar
         child: ListView(
-          physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.all(0),
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.all(0),
         children: [
 
           Container(
-            padding: EdgeInsets.only(top: 15, left: 10),
-            child: const Text(
-              "General",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+            alignment: Alignment.centerLeft,
+            margin: EdgeInsets.only(top: 2.h,left: 2.w,right: 2.w),
+            child: Text(
+              "GENERAL",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "MontserratExtraBold"),
             ),
           ),
           Container(
             padding: const EdgeInsets.only(left: 25, top: 10),
             child: const Text(
               "Direccion",
-              style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.normal),
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 25, top: 5),
+            padding: const EdgeInsets.only(left: 25, top: 5),
             child: const Text(
               "Tercer Anillo Radial 13",
               style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  fontSize: 18,
                   color: Colors.grey),
             ),
           ),
@@ -84,7 +86,7 @@ class _ContactoState extends State<Contacto> {
             padding: const EdgeInsets.only(left: 25, top: 20),
             child: const Text(
               "Email",
-              style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.normal),
             ),
           ),
           Container(
@@ -93,30 +95,27 @@ class _ContactoState extends State<Contacto> {
               "santacruz@adm.emi.edu.bo",
               style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  fontSize: 18,
                   color: Colors.grey),
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 25, top: 20),
+            padding: const EdgeInsets.only(left: 25, top: 20),
             child: const Text(
               "Fax",
-              style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.normal),
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 25, top: 5, bottom: 20),
+            padding: const EdgeInsets.only(left: 25, top: 5, bottom: 20),
             child: const Text(
               "3579545",
               style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  fontSize: 18,
                   color: Colors.grey),
             ),
           ),
           Container(
             height: 11.h,
-            //Llamamos a BarraRedes con el booleano true para mostrar el sitio web tambien
             child: const BarraRedes(
                 "https://www.facebook.com/emiuascz/",
                 "71566652",
@@ -127,7 +126,7 @@ class _ContactoState extends State<Contacto> {
           SizedBox(
             height:
             MediaQuery.of(context).orientation == Orientation.portrait
-                ? MediaQuery.of(context).size.height * 0.40
+                ? MediaQuery.of(context).size.height * 0.45
                 : MediaQuery.of(context).size.height * 0.7,
             child: GoogleMap(
               markers: _markers,

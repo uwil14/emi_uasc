@@ -1,16 +1,16 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:emi_uasc/heramientas/plantilla.dart';
+import 'package:emi_uasc/heramientas/virtual.dart';
 import 'package:emi_uasc/menu/movilidad_internacional.dart';
-import 'package:emi_uasc/menu/oferta.dart';
 import 'package:emi_uasc/menu/tour.dart';
 import 'package:emi_uasc/provider/menu_provider.dart';
+import 'package:emi_uasc/provider/virtual_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:panorama/panorama.dart';
 import 'package:provider/provider.dart';
 import 'becas.dart';
-import 'bibliotecas.dart';
 import 'buzon.dart';
 import 'contacto.dart';
 import 'convenios.dart';
@@ -31,8 +31,10 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
+    final virtualProvider = Provider.of<VirtualProvider>(context);
     Widget icono(String i) {
       final menuProvider = Provider.of<MenuProvider>(context);
+
       return Expanded(
           child: GestureDetector(
               onTap: () {
@@ -90,7 +92,7 @@ class _MenuState extends State<Menu> {
                     menuProvider.title = "CONTACTO";
                     break;
                 }
-                Navigator.of(context).push((_createRoute()));
+                Navigator.of(context).push((_createRoute(const Plantilla())));
               },
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: 2.h, horizontal: 1.w),
@@ -114,59 +116,65 @@ class _MenuState extends State<Menu> {
                   stops: [0.3, 1],
                   begin: FractionalOffset.topCenter,
                   end: FractionalOffset.bottomCenter)),
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              Panorama(
-                hotspots: [
-                  Hotspot(
-                    latitude: 0,
-                    longitude: 50,
-                    width: 30.h,
-                    height: 30.h,
-                    widget: Image.asset(
-                      'images/emi.png',
+          child: GestureDetector(
+            onTap: () {
+              virtualProvider.body = "modulo.JPG";
+              virtualProvider.title = "EMI UASC";
+              Navigator.of(context).push((_createRoute(const Virtual())));
+            },
+            child: Stack(
+              children: [
+                Panorama(
+                  hotspots: [
+                    Hotspot(
+                      latitude: 0,
+                      longitude: 50,
+                      width: 30.h,
+                      height: 30.h,
+                      widget: Image.asset(
+                        'images/emi.png',
+                      ),
                     ),
-                  ),
-                  Hotspot(
-                    latitude: 0,
-                    longitude: 230,
-                    width: 30.h,
-                    height: 30.h,
-                    widget: Image.asset(
-                      'images/emi.png',
+                    Hotspot(
+                      latitude: 0,
+                      longitude: 230,
+                      width: 30.h,
+                      height: 30.h,
+                      widget: Image.asset(
+                        'images/emi.png',
+                      ),
                     ),
-                  ),
-                  Hotspot(
-                    latitude: 0,
-                    longitude: 315,
-                    width: 30.h,
-                    height: 30.h,
-                    widget: Image.asset(
-                      'images/emi.png',
+                    Hotspot(
+                      latitude: 0,
+                      longitude: 315,
+                      width: 30.h,
+                      height: 30.h,
+                      widget: Image.asset(
+                        'images/emi.png',
+                      ),
                     ),
+                  ],
+                  interactive: false,
+                  animSpeed: 2,
+                  child: const Image(
+                    image: CachedNetworkImageProvider(
+                        'https://santacruz.emi.edu.bo/images/App/virtual/modulo.JPG'),
                   ),
-                ],
-                interactive: false,
-                animSpeed: 2,
-                child: const Image(
-                  image: CachedNetworkImageProvider(
-                      'https://santacruz.emi.edu.bo/images/App/virtual/modulo.JPG'),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 1.h, right: 3.w),
-                alignment: Alignment.bottomCenter,
-                child: Text(
-                  "EMI UASC",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontFamily: "MontserratExtraBold",
-                      color: Colors.white,
-                      fontSize: 30.sp),
-                ),
-              )
-            ],
+                Container(
+                  margin: EdgeInsets.only(bottom: 1.h, right: 3.w),
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "EMI UASC",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: "MontserratExtraBold",
+                        color: Colors.white,
+                        fontSize: 30.sp),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
         Expanded(
@@ -368,10 +376,9 @@ class _MenuState extends State<Menu> {
   }
 }
 
-Route _createRoute() {
+Route _createRoute(Widget x) {
   return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-          const Plantilla(),
+      pageBuilder: (context, animation, secondaryAnimation) => x,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = const Offset(0.0, 0.1);
         var end = Offset.zero;

@@ -42,7 +42,7 @@ Widget cursos(context) {
                   alignment: Alignment.bottomCenter,
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
                       child: Container(
                         color: Colors.black,
                         child: Stack(
@@ -61,16 +61,17 @@ Widget cursos(context) {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(
+                      margin: EdgeInsets.only(left: 5.w,right: 5.w,
                         bottom: MediaQuery.of(context).size.height * 0.03,
                       ),
                       child: Text(
                         nombres[index],
                         textAlign: TextAlign.center,
                         style: const TextStyle(
+                          fontFamily: "MontserratMediumItalic",
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 20),
+                            fontSize: 15),
                       ),
                     )
                   ],

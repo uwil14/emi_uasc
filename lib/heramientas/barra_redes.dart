@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-// La clase de BarraRedes es un widget de ayuda
 class BarraRedes extends StatelessWidget {
   final String facebook;
   final String whatsapp;
@@ -10,7 +9,6 @@ class BarraRedes extends StatelessWidget {
   final String web;
   final bool red;
 
-// Recible como parametros las direcciones de facebook, whatsapp, telefono, web y un booleano para ver si se mostrara o no la web
   const BarraRedes(
       this.facebook, this.whatsapp, this.telefono, this.web, this.red);
 

@@ -11,17 +11,17 @@ import 'package:sizer/sizer.dart';
 import 'heramientas/splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-// Inicia el programa
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.light,
         statusBarColor: Colors.transparent));
-    //Utlizamos multiprovider para manejar informacion entre paginas
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => MenuProvider()),
@@ -29,17 +29,15 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => VirtualProvider()),
           ChangeNotifierProvider(create: (context) => VisorProvider()),
         ],
-        //Usamos Material App como estilo para nuestra app
         child: Sizer(builder: (context, orientation, deviceType) {
           return MaterialApp(
             scrollBehavior:
-            ScrollBehavior().copyWith(physics: BouncingScrollPhysics()),
+            const ScrollBehavior().copyWith(physics: BouncingScrollPhysics()),
             theme: ThemeData(
               fontFamily: 'MontserratRegular',
             ),
             debugShowCheckedModeBanner: false,
-            //Llamanos a nuestra SplashScreen para que muestre la animacion de inicio
-            home: SplashScreen(),
+            home: const SplashScreen(),
           );
         }));
   }

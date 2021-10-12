@@ -4,43 +4,58 @@ import 'package:emi_uasc/provider/virtual_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:panorama/panorama.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 
 class Virtual extends StatefulWidget {
+  const Virtual({Key? key}) : super(key: key);
+
   @override
   _VirtualState createState() => _VirtualState();
 }
-//La estructura de Virtual tendra un Scffold con el titulo obtenido con el Provider VirtualProvider
+
 class _VirtualState extends State<Virtual> {
   @override
   Widget build(BuildContext context) {
     final virtualProvider = Provider.of<VirtualProvider>(context);
-    return  Scaffold(
-      appBar: AppBar(
-
-        foregroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-        ),
-        centerTitle: true,
-        title:Text(  "EMI 360",style: const TextStyle(color: Colors.black,fontFamily: "MontserratSemiBold"),),
-
-
-      ),
+    return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          //Usando la libreria panorama y configurando su parametro de sensorControl usaremos el giroscopio del dispositivo
+
           Panorama(
-            animSpeed: 3.0,
+            hotspots: virtualProvider.title == "EMI UASC"
+                ? [
+                    Hotspot(
+                      latitude: 0,
+                      longitude: 50,
+                      width: 30.h,
+                      height: 30.h,
+                      widget: Image.asset(
+                        'images/emi.png',
+                      ),
+                    ),
+                    Hotspot(
+                      latitude: 0,
+                      longitude: 230,
+                      width: 30.h,
+                      height: 30.h,
+                      widget: Image.asset(
+                        'images/animacion.gif',
+                      ),
+                    ),
+                    Hotspot(
+                      latitude: 0,
+                      longitude: 315,
+                      width: 30.h,
+                      height: 30.h,
+                      widget: Image.asset(
+                        'images/emi.png',
+                      ),
+                    ),
+                  ]
+                : [],
+            animSpeed: 0.1,
             sensorControl: SensorControl.Orientation,
             child: Image(
               image: CachedNetworkImageProvider(
@@ -48,24 +63,35 @@ class _VirtualState extends State<Virtual> {
                       virtualProvider.body),
             ),
           ),
-          //Aqui agregaremos el nombre de lo que se este proyectando
           Container(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
             margin: EdgeInsets.only(
                 bottom: MediaQuery.of(context).size.height * 0.15),
             child: Text(
               virtualProvider.title,
+              textAlign: TextAlign.center,
               style: const TextStyle(
                   color: Colors.white,
                   fontSize: 30,
-                  fontWeight: FontWeight.bold),
+                  fontFamily: "MontserratExtraBold"
+                  ),
             ),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 6.h,left: 3.w),
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
-      ),);
-
-
-
-
-
+      ),
+    );
   }
 }

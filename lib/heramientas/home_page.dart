@@ -1,6 +1,5 @@
 import 'package:emi_uasc/menu/menu.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -9,41 +8,15 @@ import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
-
-// Inicia el HomePage
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    // La funcion foto() devuelve un stack que segun la posicion del telefono tendra un margen superior y la palabra MENÚ
-    Widget foto() {
-      return Container(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              margin: EdgeInsets.only(
-                  top:
-                      MediaQuery.of(context).orientation == Orientation.portrait
-                          ? MediaQuery.of(context).size.height * 0.15
-                          : MediaQuery.of(context).size.height * 0.5),
-              child: const Text(
-                "MENÚ",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "MontserratExtraBold"),
-              ),
-            )
-          ],
-        ),
-      );
-    }
 
-    // La funcion enlaces() recibe el nombre y un enlace para las tarjetas de los menus laterales
     Widget enlaces(String a, String b, String enlace) {
       return Container(
         padding: EdgeInsets.all(2.h),
@@ -78,10 +51,9 @@ class _HomePageState extends State<HomePage> {
       );
     }
 
-    // El cuerpo de nuestro HomePage tendra un InnerDrawer
     return Scaffold(
       body: InnerDrawer(
-        boxShadow: [BoxShadow()],
+        boxShadow: const [BoxShadow()],
         onTapClose: true,
         swipe: true,
         colorTransitionChild: const Color(0xff034692),
@@ -93,17 +65,14 @@ class _HomePageState extends State<HomePage> {
         leftAnimationType: InnerDrawerAnimation.quadratic,
         rightAnimationType: InnerDrawerAnimation.quadratic,
         backgroundDecoration: const BoxDecoration(color: Color(0xff034692)),
-        //El menu Izquiero Tendra una animacion con un ListView y sus tarjetas correspondientes
         leftChild: Scaffold(
           backgroundColor: Colors.transparent,
           body: Stack(
             fit: StackFit.expand,
             children: [
-              Container(
-                child: Image.asset(
-                  'images/izq.png',
-                  alignment: Alignment.bottomCenter,
-                ),
+              Image.asset(
+                'images/izq.png',
+                alignment: Alignment.bottomCenter,
               ),
               Stack(
                 children: [
@@ -160,7 +129,6 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        //El menu Derecho Tendra una animacion con un ListView y sus tarjetas correspondientes
         rightChild: Scaffold(
           backgroundColor: Colors.transparent,
           body: Stack(fit: StackFit.expand, children: [
@@ -173,32 +141,34 @@ class _HomePageState extends State<HomePage> {
                 Column(
                   children: [
                     Expanded(
-                        child: BounceInDown(child: ListView(
-                          physics: const BouncingScrollPhysics(),
-                          children: [
-                            Container(
-                              height: 130,
-                            ),
-                            enlaces("Notas", "SAGA",
-                                "https://notas.emi.edu.bo/login"),
-                            enlaces("E-libro", "",
-                                "https://elibro.net/es/lc/emisantacruz"),
-                            enlaces("Mi Libreria", "Digital",
-                                "https://site1.milibreriadigital.com/"),
-                            enlaces("Repositorio", "de Grado",
-                                "http://repositorio.servicios.emi.edu.bo/Visita/view"),
-                            enlaces("Repositorio", "de Posgrado",
-                                "http://repositorio.servicios.emi.edu.bo/Visita/view2"),
-                            enlaces("Office", "365",
-                                "https://login.microsoftonline.com/"),
-                            enlaces("Moodle", "Grado",
-                                "http://campus.santacruz.emi.edu.bo/"),
-                            enlaces("Moodle", "Posgrado",
-                                "http://posgrado.santacruz.emi.edu.bo/"),
-                            enlaces("Tutorial", "Facturación en Línea",
-                                "https://www.youtube.com/watch?v=y7CYTwW3n94 "),
-                          ],
-                        ),))
+                        child: BounceInDown(
+                      child: ListView(
+                        physics: const BouncingScrollPhysics(),
+                        children: [
+                          Container(
+                            height: 130,
+                          ),
+                          enlaces("Notas", "SAGA",
+                              "https://notas.emi.edu.bo/login"),
+                          enlaces("E-libro", "",
+                              "https://elibro.net/es/lc/emisantacruz"),
+                          enlaces("Mi Libreria", "Digital",
+                              "https://site1.milibreriadigital.com/"),
+                          enlaces("Repositorio", "de Grado",
+                              "http://repositorio.servicios.emi.edu.bo/Visita/view"),
+                          enlaces("Repositorio", "de Posgrado",
+                              "http://repositorio.servicios.emi.edu.bo/Visita/view2"),
+                          enlaces("Office", "365",
+                              "https://login.microsoftonline.com/"),
+                          enlaces("Moodle", "Grado",
+                              "http://campus.santacruz.emi.edu.bo/"),
+                          enlaces("Moodle", "Posgrado",
+                              "http://posgrado.santacruz.emi.edu.bo/"),
+                          enlaces("Tutorial", "Facturación en Línea",
+                              "https://www.youtube.com/watch?v=y7CYTwW3n94 "),
+                        ],
+                      ),
+                    ))
                   ],
                 ),
                 Container(
@@ -206,13 +176,13 @@ class _HomePageState extends State<HomePage> {
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                           colors: [
-                            const Color(0xff034693),
-                            const Color(0xff034693).withOpacity(0.1)
-                          ],
+                        const Color(0xff034693),
+                        const Color(0xff034693).withOpacity(0.1)
+                      ],
                           stops: const [
-                            0.7,
-                            1
-                          ],
+                        0.7,
+                        1
+                      ],
                           begin: FractionalOffset.topCenter,
                           end: FractionalOffset.bottomCenter)),
                 ),
@@ -231,12 +201,8 @@ class _HomePageState extends State<HomePage> {
             )
           ]),
         ),
-        // Nuestro menu central tendra un container con una imagen y el resto de la pantalla con los iconos del menu
-        scaffold: Scaffold(
-          backgroundColor:const Color(0xff005F92) ,
-          // Segun la orientacion del dispositivo se creara una columna o una fila
-          body: Menu()
-        ),
+        scaffold:
+            Scaffold(backgroundColor: const Color(0xff005F92), body: Menu()),
       ),
     );
   }
