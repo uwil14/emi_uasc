@@ -41,7 +41,7 @@ class _VirtualState extends State<Virtual> {
                       width: 30.h,
                       height: 30.h,
                       widget: Image.asset(
-                        'images/animacion.gif',
+                        'images/emi.png',
                       ),
                     ),
                     Hotspot(

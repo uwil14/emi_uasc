@@ -357,7 +357,6 @@ class _MenuState extends State<Menu> {
                           Expanded(
                             child: Row(
                               children: [
-                                icono("11"),
                                 icono("12"),
                               ],
                             ),
