@@ -37,7 +37,7 @@ dependencies:
   webview_flutter: ^2.1.1
   ftpconnect: ^1.0.0
   flutter_svg: ^0.22.0
-
+  mailer: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -76,4 +76,4 @@ flutter:
     - images/menu/
 
 flutter_native_splash:
-  color: "ffffff"
+  color: "005F92"

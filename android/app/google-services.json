@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618724516478",
+    "project_id": "app-emi-315519",
+    "storage_bucket": "app-emi-315519.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618724516478:android:8c880b2fe4627919416e2f",
+        "android_client_info": {
+          "package_name": "com.emi.emi_uasc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618724516478-ho4mkve8stjivfgug1sdjgj782ffe564.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGeVKA6M6DE1RW1f97_Ar4BBYGc6o_e4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618724516478-ho4mkve8stjivfgug1sdjgj782ffe564.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

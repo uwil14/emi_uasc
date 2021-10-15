@@ -85,7 +85,7 @@ class _MenuState extends State<Menu> {
                     break;
                   case '11':
                     menuProvider.body = Buzon();
-                    menuProvider.title = "BUZON";
+                    menuProvider.title = "BÚZON";
                     break;
                   case '12':
                     menuProvider.body = Contacto();
@@ -357,6 +357,7 @@ class _MenuState extends State<Menu> {
                           Expanded(
                             child: Row(
                               children: [
+                                icono("11"),
                                 icono("12"),
                               ],
                             ),
