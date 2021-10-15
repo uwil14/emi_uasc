@@ -74,7 +74,7 @@ class _BuzonState extends State<Buzon> {
                         final message = Message()
                           ..from = Address(
                               username, 'Escuela Militar de Ingeniería UASC')
-                          ..recipients.add("cuellarrojasuwil@gmail.com")
+                          ..recipients.add("vhurtadop@adm.emi.edu.bo")
                           ..subject = 'Buzón de Sugerencias'
                           ..html = "  <body>"
                           "<p>$mensaje</p>"
